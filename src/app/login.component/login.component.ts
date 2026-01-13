@@ -19,8 +19,8 @@ export class LoginComponent {
     private http: HttpClient
   ) {
     this.loginForm = this.fb.group({
-      clientCode: ['', Validators.required],
-      password: ['', Validators.required]
+      clientCode: ['', [Validators.required, Validators.maxLength(8)]],
+      password: ['', [Validators.required, Validators.maxLength(6)]]
     });
   }
 

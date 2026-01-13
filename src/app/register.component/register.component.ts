@@ -1,11 +1,34 @@
 import { Component } from '@angular/core';
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-register.component',
-  imports: [],
+  imports: [
+    FormsModule,
+    ReactiveFormsModule
+  ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })
 export class RegisterComponent {
+
+  private base = 'https://coding-bank.fly.dev';
+  registerForm: FormGroup;
+
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient
+  ) {
+    this.registerForm = this.fb.group({
+      name: ['', Validators.required],
+      password: ['', [Validators.required, Validators.maxLength(6)]]
+    });
+  }
+
+  submit() {
+    const formData = this.registerForm.value;
+    this.http.post(`${this.base}/auth/register`, formData).subscribe(console.log)
+  }
 
 }

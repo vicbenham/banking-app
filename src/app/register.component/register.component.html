@@ -1,1 +1,35 @@
-<p>register.component works!</p>
+<div class="">
+  <h2>Register</h2>
+
+  <form [formGroup]="registerForm" (ngSubmit)="submit()">
+
+    <!-- Champ nom -->
+    <div class="">
+      <label for="clientCode">Nom </label>
+      <input
+        type="text"
+        id="name"
+        formControlName="name"
+        placeholder="John Doe">
+    </div>
+
+
+    <!-- Champ Password -->
+    <div class="">
+      <label for="password">Password </label>
+      <input
+        type="password"
+        id="password"
+        formControlName="password"
+        placeholder="******"
+        maxlength="6">
+    </div>
+
+    <button (click)="submit()"
+            class="px-4 py-2 rounded-lg bg-green-600 text-white font-medium
+         hover:bg-green-700 active:bg-green-800
+         focus:outline-none focus:ring-2 focus:ring-green-400
+         transition">
+      Register</button>
+  </form>
+</div>

@@ -1,25 +1,32 @@
 import { Component } from '@angular/core';
-import {LoginService} from '../login.service/login.service';
-import {LoginRequest} from '../login.service/login.interface';
+import { HttpClient } from '@angular/common/http';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 
 @Component({
-  selector: 'app-login.component',
-  imports: [],
+  selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
+  imports: [
+    ReactiveFormsModule
+  ],
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  clientCode = '';
-  password = '';
+  private base = 'https://coding-bank.fly.dev';
+  loginForm: FormGroup;
 
-  constructor(private auth: LoginService) {}
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient
+  ) {
+    this.loginForm = this.fb.group({
+      clientCode: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
 
   submit() {
-    const body: LoginRequest = {
-      clientCode: this.clientCode,
-      password: this.password,
-    };
-
-    this.auth.login(body).subscribe();
+    const formData = this.loginForm.value;
+    this.http.post(`${this.base}/auth/login`, formData).subscribe(console.log)
   }
+
 }

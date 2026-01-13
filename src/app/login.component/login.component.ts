@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent {
 
   constructor(
     private fb: FormBuilder,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) {
     this.loginForm = this.fb.group({
       clientCode: ['', [Validators.required, Validators.maxLength(8)]],
@@ -26,7 +28,14 @@ export class LoginComponent {
 
   submit() {
     const formData = this.loginForm.value;
-    this.http.post(`${this.base}/auth/login`, formData).subscribe(console.log)
+    this.http.post(`${this.base}/auth/login`, formData).subscribe({
+      next: () => {
+        this.router.navigate([''])
+      },
+      error: () => {
+        console.log("ERROR")
+      }
+    })
   }
 
 }

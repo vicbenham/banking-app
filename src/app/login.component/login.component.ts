@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,RouterLink
   ],
   styleUrls: ['./login.component.css']
 })
@@ -37,5 +38,8 @@ export class LoginComponent {
       }
     })
   }
+clearPassword() {
+  this.loginForm.get('password')?.setValue('');
+}
 
 }

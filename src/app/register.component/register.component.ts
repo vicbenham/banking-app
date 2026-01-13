@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register.component',
@@ -18,7 +19,8 @@ export class RegisterComponent {
 
   constructor(
     private fb: FormBuilder,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) {
     this.registerForm = this.fb.group({
       name: ['', Validators.required],
@@ -28,7 +30,14 @@ export class RegisterComponent {
 
   submit() {
     const formData = this.registerForm.value;
-    this.http.post(`${this.base}/auth/register`, formData).subscribe(console.log)
+    this.http.post(`${this.base}/auth/register`, formData).subscribe({
+      next: () => {
+        this.router.navigate([''])
+      },
+      error: () => {
+        console.log("ERROR")
+      }
+    })
   }
 
 }

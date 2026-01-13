@@ -1,6 +1,5 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {ApiService} from './api.service';
 
 @Component({
   selector: 'app-root',
@@ -11,11 +10,7 @@ import {ApiService} from './api.service';
 export class App {
   protected readonly title = signal('banking');
 
-  constructor(private api: ApiService) {
-  }
+  // TEST ACCOUNT : clientCode: 36036656 password: 123456
 
-  load() {
-    this.api.getAccounts().subscribe(console.log);
-  }
 
 }

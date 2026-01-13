@@ -8,7 +8,7 @@ export class LoginService {
 
   constructor(private http: HttpClient) {}
 
-  login(data: LoginRequest) {
-    return this.http.post(`${this.base}/login`, data);
+  submit(data: LoginRequest) {
+    return this.http.post(`${this.base}/auth/login`, data);
   }
 }

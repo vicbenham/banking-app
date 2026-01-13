@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
-import {Router} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-register.component',
   imports: [
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule, RouterLink
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
@@ -39,5 +39,7 @@ export class RegisterComponent {
       }
     })
   }
-
+clearPassword() {
+  this.registerForm.get('password')?.setValue('');    
+}
 }

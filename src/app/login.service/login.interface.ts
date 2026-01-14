@@ -3,3 +3,11 @@ export interface LoginRequest {
   password: string
 }
 
+export interface LoginResponse {
+  jwt: string;
+  user: {
+    clientCode: string;
+    name: string;
+  };
+}
+

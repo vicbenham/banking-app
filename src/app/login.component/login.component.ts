@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AuthService } from '../login.service/auth.service';
 import { HttpClient } from '@angular/common/http';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {Router, RouterLink} from '@angular/router';
 
 
 @Component({
   selector: 'app-login',
+  standalone: true,
   templateUrl: './login.component.html',
   imports: [
     ReactiveFormsModule,RouterLink
@@ -13,11 +15,11 @@ import {Router, RouterLink} from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  private base = 'https://coding-bank.fly.dev';
   loginForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
+    private auth: AuthService,
     private http: HttpClient,
     private router: Router
   ) {
@@ -28,18 +30,16 @@ export class LoginComponent {
   }
 
   submit() {
-    const formData = this.loginForm.value;
-    this.http.post(`${this.base}/auth/login`, formData).subscribe({
-      next: () => {
-        this.router.navigate([''])
-      },
-      error: () => {
-        console.log("ERROR")
-      }
-    })
+    if (this.loginForm.invalid) return;
+
+    this.auth.login(this.loginForm.value).subscribe({
+      next: () => this.router.navigate(['/']),
+      error: () => console.log('ERROR'),
+    });
   }
 clearPassword() {
   this.loginForm.get('password')?.setValue('');
 }
+
 
 }

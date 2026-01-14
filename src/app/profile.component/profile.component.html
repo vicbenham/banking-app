@@ -1,0 +1,17 @@
+<div class="min-h-screen bg-gray-50 p-6">
+    <div class="mx-auto w-full max-w-2xl space-y-6">
+        <!-- Card: Profile -->
+        <div class="rounded-2xl bg-white p-6 shadow-sm border border-gray-100">
+            <div class="flex flex-row space-around justify-between mb-3">
+                <h1> {{ user()?.name }}</h1>
+                <first-letter-icon></first-letter-icon>
+            </div>
+            <div class="mb-3">
+                <h2>Client code</h2>
+                <p> {{ user()?.clientCode }}</p>
+            </div>
+
+            <button class="text-red-600 hover:text-red-400"><a routerLink="/login">Déconnexion</a></button>
+        </div>
+    </div>
+</div>

@@ -14,15 +14,15 @@
           <label for="accountSelect" class="block text-xs font-medium text-gray-600 mb-1">
             Sélectionner un compte
           </label>
-          <select
-            id="accountSelect"
-            class="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-800
-                   focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            <option> {{ user()?.name }} </option>
-            <option>Compte 2</option>
-            <option>Compte 3</option>
-          </select>
+            <select
+              id="accountSelect"
+              class="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-800
+                     focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              @for (acc of signalAccounts(); track acc.id) {
+                <option [value]="acc.id">{{ acc.label }}</option>
+              }
+            </select>
         </div>
       </div>
 
@@ -59,13 +59,14 @@
         </button>
 
         <button
+          routerLink="/account"
           type="button"
-          class="w-full rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-800
-                 hover:bg-gray-50 active:bg-gray-100
+          class="w-full rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white
+                 hover:bg-blue-700 active:bg-blue-800
                  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
                  transition"
         >
-          Bouton 3
+          Ouvrir un compte
         </button>
       </div>
     </div>

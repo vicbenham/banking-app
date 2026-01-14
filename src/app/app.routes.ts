@@ -5,6 +5,7 @@ import {RegisterComponent} from './register.component/register.component';
 import {HomeComponent} from './home.component/home.component';
 import {AccountComponent} from './account.component/account.component';
 import { ProfileComponent } from './profile.component/profile.component';
+import {AccountInfosComponent} from './account.infos.component/account.infos.component';
 
 export const routes: Routes = [{
   path: '',
@@ -24,4 +25,7 @@ export const routes: Routes = [{
 }, {
   path: 'account',
   component: AccountComponent
+}, {
+  path: 'accounts/:id',
+  component: AccountInfosComponent
 }];

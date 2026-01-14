@@ -4,14 +4,13 @@ import { User } from '../models/user';
 import {RouterLink} from '@angular/router';
 import {AccountService} from '../account.component/account.service';
 import {toSignal} from '@angular/core/rxjs-interop';
-import { Account } from '../models/account'; // adapte le chemin si besoin
+import { Account } from '../models/account';
+import { NavbarComponent } from '../navbar/navbar';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [
-    RouterLink,
-  ],
+  imports: [NavbarComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })

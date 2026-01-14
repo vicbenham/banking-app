@@ -10,7 +10,7 @@ import { NavbarComponent } from '../navbar/navbar';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NavbarComponent],
+  imports: [NavbarComponent, RouterLink],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })

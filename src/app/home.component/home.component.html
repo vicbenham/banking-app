@@ -67,6 +67,16 @@
           Ouvrir un compte
         </button>
       </div>
+      <button
+        [routerLink]="['/accounts', selectedAccountId()]"
+        [disabled]="!selectedAccountId()"
+        type="button"
+        class="my-5 w-full rounded-lg bg-yellow-600 px-4 py-2 text-sm font-medium text-white
+                 hover:bg-yellow-700 active:bg-yellow-800
+                 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2
+                 transition">
+        TEMP BTN
+      </button>
     </div>
 
   </div>

@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
 import { AuthService } from '../login.service/auth.service';
 import { User } from '../models/user';
 import { NavbarComponent } from '../navbar/navbar';
@@ -12,8 +12,12 @@ import { NavbarComponent } from '../navbar/navbar';
 })
 export class HomeComponent {
   user = signal<User | undefined>(undefined);
+  private accountService = inject(AccountService)
+  signalAccounts = toSignal(this.accountService.getAccounts())
 
-  constructor(private auth: AuthService) {
+  constructor(
+    private auth: AuthService,
+  ) {
     this.user.set(this.auth.getUser());
     console.log('USER FROM STORAGE', this.user());
   }

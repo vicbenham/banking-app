@@ -15,17 +15,19 @@ export class AuthService {
   // Login
   login(body: { clientCode: string; password: string }) {
     return this.http.post<LoginResponse>(`${this.base}/auth/login`, body).pipe(
-      tap((response) => {
-        const user: User = {
-          clientCode: response.user.clientCode,
-          name: response.user.name,
-          token: response.jwt,
-        };
-
-        this.currentUser = user;
-        localStorage.setItem('user', JSON.stringify(user));
-      })
+      tap((response) => { this.storeSession(response) })
     );
+  }
+
+  storeSession(response: LoginResponse) {
+    const user: User = {
+      clientCode: response.user.clientCode,
+      name: response.user.name,
+      token: response.jwt,
+    };
+
+    this.currentUser = user;
+    localStorage.setItem('user', JSON.stringify(user));
   }
 
   // Récupérer l'utilisateur

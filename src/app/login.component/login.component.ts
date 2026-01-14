@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { AuthService } from '../login.service/auth.service';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import {Router, RouterLink} from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
   standalone: true,
   templateUrl: './login.component.html',
-  imports: [ReactiveFormsModule],
+  imports: [
+    ReactiveFormsModule,RouterLink
+  ],
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
@@ -34,6 +37,9 @@ export class LoginComponent {
       error: () => console.log('ERROR'),
     });
   }
+clearPassword() {
+  this.loginForm.get('password')?.setValue('');
+}
 
 
 }

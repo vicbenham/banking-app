@@ -1,17 +1,56 @@
 <div class="min-h-screen bg-gray-50 p-6">
-    <div class="mx-auto w-full max-w-2xl space-y-6">
-        <!-- Card: Profile -->
-        <div class="rounded-2xl bg-white p-6 shadow-sm border border-gray-100">
-            <div class="flex flex-row space-around justify-between mb-3">
-                <h1> {{ user()?.name }}</h1>
-                <first-letter-icon></first-letter-icon>
-            </div>
-            <div class="mb-3">
-                <h2>Client code</h2>
-                <p> {{ user()?.clientCode }}</p>
-            </div>
+  <div class="mx-auto w-full max-w-2xl space-y-6">
 
-            <button class="text-red-600 hover:text-red-400"><a routerLink="/login">Déconnexion</a></button>
+    <!-- Card: Profile -->
+    <div class="rounded-2xl bg-white p-6 shadow-md border border-gray-100">
+      <!-- Header -->
+      <div class="flex items-center justify-between gap-4 pb-4 border-b border-gray-100">
+        <div class="min-w-0">
+          <p class="text-xs font-medium tracking-wide text-gray-500 uppercase">Profil</p>
+          <h1 class="mt-1 text-xl font-semibold text-gray-900 truncate">
+            {{ user()?.name }}
+          </h1>
         </div>
+
+        <div class="shrink-0">
+          <div class="h-12 w-12 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center">
+            <first-letter-icon></first-letter-icon>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="mt-5 space-y-4">
+        <div class="rounded-xl bg-gray-50 border border-gray-100 p-4">
+          <p class="text-xs font-medium text-gray-500 uppercase tracking-wide">Client code</p>
+          <p class="mt-1 text-lg font-semibold text-gray-900">
+            {{ user()?.clientCode }}
+          </p>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="mt-6 flex items-center justify-between">
+        <button
+          routerLink="/"
+          class="inline-flex items-center justify-center gap-2 rounded-lg bg-yellow-600 px-4 py-2.5 text-sm font-semibold text-white
+                 shadow-sm hover:bg-yellow-700 active:bg-yellow-800
+                 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2
+                 transition"
+        >
+          Retour aux comptes
+        </button>
+        <button
+          routerLink="/login"
+          class="inline-flex items-center justify-center gap-2 rounded-lg bg-red-100 px-4 py-2.5 text-sm font-semibold text-red-500
+                 shadow-sm hover:bg-red-200 active:bg-red-300
+                 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2
+                 transition"
+        >
+          Déconnexion
+        </button>
+      </div>
     </div>
+
+  </div>
 </div>

@@ -12,5 +12,4 @@ export class App {
 
   // TEST ACCOUNT : clientCode: 36036656 password: 123456
 
-
 }

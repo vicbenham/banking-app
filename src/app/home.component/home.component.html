@@ -16,24 +16,30 @@
           <label for="accountSelect" class="block text-xs font-medium text-gray-600 mb-1">
             Sélectionner un compte
           </label>
-          <select id="accountSelect" class="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-800
-                   focus:outline-none focus:ring-2 focus:ring-yellow-500">
-            <option> {{ user()?.name }} </option>
-            <option>Compte 2</option>
-            <option>Compte 3</option>
-          </select>
+            <select
+              (change)="onAccountChange($event)"
+              id="accountSelect"
+              class="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-800
+                     focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              @for (acc of signalAccounts(); track acc.id) {
+                <option [value]="acc.id" [selected]="acc.id === selectedAccountId()">{{ acc.label }}</option>
+              }
+            </select>
         </div>
       </div>
 
       <!-- Balance -->
-      <div class="mt-6 rounded-xl bg-gray-50 p-5 border border-gray-100">
-        <p class="text-sm text-gray-500">Solde du compte</p>
-        <div class="mt-1 flex items-baseline gap-2">
-          <span class="text-3xl font-semibold text-gray-900">2 450,75</span>
-          <span class="text-sm font-medium text-gray-500">EUR</span>
+      @if (selectedAccount(); as acc) {
+        <div class="mt-6 rounded-xl bg-gray-50 p-5 border border-gray-100">
+          <p class="text-sm text-gray-500">Solde du compte</p>
+          <div class="mt-1 flex items-baseline gap-2">
+            <span class="text-3xl font-semibold text-gray-900">{{ acc.balance }}</span>
+            <span class="text-sm font-medium text-gray-500">EUR</span>
+          </div>
+          <p class="mt-2 text-xs text-gray-500">Dernière mise à jour : aujourd’hui</p>
         </div>
-        <p class="mt-2 text-xs text-gray-500">Dernière mise à jour : aujourd’hui</p>
-      </div>
+      }
 
       <!-- Boutons -->
       <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -45,14 +51,19 @@
         <button type="button" class="w-full rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-800
                  hover:bg-gray-50 active:bg-gray-100
                  focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2
-                 transition">
+                 transition"
+        >
           Bouton 2
         </button>
 
-        <button routerLink="/account" type="button" class="w-full rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-800
+        <button
+          routerLink="/account"
+          type="button"
+          class="w-full rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-800
                  hover:bg-gray-50 active:bg-gray-100
                  focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2
-                 transition">
+                 transition"
+        >
           Ouvrir un compte
         </button>
       </div>

@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../login.service/auth.service';
+import { FirstLetterPipe } from '../pipe/first-letter-pipe';
+import { FirstLetterIcon } from '../first-letter-icon/first-letter-icon';
+
 
 @Component({
   selector: 'app-navbar',
-  standalone: true,
+imports : [FirstLetterIcon, FirstLetterPipe],
   template: `
   <nav class="w-full bg-white border-b border-gray-200">
     <div class="max-w-7xl mx-auto px-4">

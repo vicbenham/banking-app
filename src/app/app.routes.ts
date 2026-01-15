@@ -29,6 +29,6 @@ export const routes: Routes = [{
     path: 'transaction',
     component: TransactionComponent
 }, {
-  path: 'transaction/details',
+  path: 'transaction-details',
   component: TransactionDetail
 }];

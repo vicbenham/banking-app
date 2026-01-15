@@ -19,7 +19,7 @@
       </div>
 
       <div>
-        <label for="amount" class="block text-gray-700 font-semibold mb-1">Amount</label>
+        <label for="amount" class="block text-gray-700 font-semibold mb-1">Montant</label>
         <input
           id="amount"
           placeholder="200"
@@ -44,6 +44,8 @@
       </button>
 
     </form>
-
   </div>
 </div>
+@if (lastTransaction){
+  <app-transaction-detail [transaction]="lastTransaction"></app-transaction-detail>}
+

@@ -2,13 +2,15 @@ import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {Router, RouterLink} from "@angular/router";
 import {AccountService} from './account.service';
+import { NavbarComponent } from '../navbar/navbar';
 
 @Component({
   selector: 'app-account.component',
     imports: [
         FormsModule,
         ReactiveFormsModule,
-        RouterLink
+        RouterLink,
+        NavbarComponent
     ],
   templateUrl: './account.component.html',
   styleUrl: './account.component.css',

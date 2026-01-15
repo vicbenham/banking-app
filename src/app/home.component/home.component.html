@@ -39,10 +39,12 @@
 
       <!-- Boutons -->
       <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
-        <button routerLink="/profile" type="button" class="w-full rounded-lg bg-yellow-600 px-4 py-2 text-sm font-medium text-white
+        <button [routerLink]="['/accounts', selectedAccountId()]" [disabled]="!selectedAccountId()" type="button" class="w-full rounded-lg bg-yellow-600 px-4 py-2 text-sm font-medium text-white
                  hover:bg-yellow-700 active:bg-yellow-800
                  focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2
-                 transition">Profile</button>
+                 transition">
+          Infos
+        </button>
 
         <button type="button" class="w-full rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-800
                  hover:bg-gray-50 active:bg-gray-100
@@ -58,12 +60,6 @@
           Ouvrir un compte
         </button>
       </div>
-      <button [routerLink]="['/accounts', selectedAccountId()]" [disabled]="!selectedAccountId()" type="button" class="my-5 w-full rounded-lg bg-yellow-600 px-4 py-2 text-sm font-medium text-white
-                 hover:bg-yellow-700 active:bg-yellow-800
-                 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2
-                 transition">
-        TEMP BTN
-      </button>
     </div>
 
   </div>

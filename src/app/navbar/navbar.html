@@ -4,7 +4,8 @@
 
       <!-- Logo -->
       <div class="flex-1 flex justify-center md:justify-start">
-        <img src="assets/bank-logo.png" alt="Logo banque" class="h-10 w-auto object-contain" />
+        <img src="assets/bank-logo.png" alt="Logo banque" class="h-10 w-auto object-contain cursor-pointer"
+          routerLink="/" />
       </div>
 
       <!-- Icône utilisateur -->
@@ -13,7 +14,7 @@
       <!-- Déconnexion (affiché uniquement si connecté) -->
       <div class="flex items-center ml-5" *ngIf="auth.isLoggedIn()">
         <button class="p-2 rounded-full hover:bg-gray-100 transition" aria-label="Déconnexion" (click)="logout()">
-          <img src="assets/icon-déconnection.png" alt="Déconnexion" class="h-6 w-6" />
+          <img src="assets/icon-déconnection.png" alt="Déconnexion" class="h-6 w-6 cursor-pointer" />
         </button>
       </div>
 

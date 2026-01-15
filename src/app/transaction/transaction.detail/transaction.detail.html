@@ -1,16 +1,58 @@
 <app-navbar></app-navbar>
-<div class="p-6 bg-white shadow-lg rounded-xl border border-gray-200">
+<div class="min-h-screen flex items-center justify-center bg-gray-100 px-4">
   @if (transaction) {
-    <h2 class="text-xl font-bold text-gray-800 mb-4">Transaction effectuée</h2>
+    <div class="bg-white p-10 rounded-2xl shadow-xl w-full max-w-5xl my-8">
+    <a routerLink="/"
+       class="inline-flex items-center rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-800
+               hover:bg-gray-50 transition">← Retour</a>
+    <div class="flex justify-between gap-4 mb-6">
+        <h2 class="text-xl font-bold text-gray-800">
+          Transaction effectuée
+        </h2>
+      <a routerLink="/profile"><first-letter-icon></first-letter-icon></a>
+    </div>
+    <div class="space-y-3 text-gray-700">
 
-    <div class="space-y-2 text-gray-700">
-      <p><span class="font-semibold">ID bénéficiaire :</span> {{ transaction?.receiverAccountId }}</p>
-      <p><span class="font-semibold">Montant :</span> {{ transaction?.amount }} €</p>
-      <p><span class="font-semibold">Description :</span> {{ transaction?.description || 'Aucune' }}</p>
+      <p>
+        <span class="font-semibold">ID :</span>
+        {{ transaction.id }}
+      </p>
+
+
+      <p>
+        <span class="font-semibold">Bénéficiaire :</span>
+        {{ transaction.receiverAccountId }}
+      </p>
+
+      <p>
+        <span class="font-semibold">Montant :</span>
+        <span class="text-green-600 font-bold">
+        {{ transaction.amount }} €
+      </span>
+      </p>
+
+      <p>
+        <span class="font-semibold">Statut :</span>
+        <span
+          class="px-3 py-1 rounded-full text-white text-sm"
+          [ngClass]="{
+          'bg-green-600': transaction.status === 'SUCCESS',
+          'bg-yellow-500': transaction.status === 'PENDING',
+          'bg-red-600': transaction.status === 'FAILED'
+        }">
+        {{ transaction.status }}
+      </span>
+      </p>
+      <p>
+        <span class="font-semibold">Description :</span>
+        {{ transaction.description || 'Aucune' }}
+      </p>
     </div>
 
     <div class="mt-4 text-sm text-gray-500">
       Transaction envoyée avec succès.
     </div>
+    </div>
 }
 </div>
+

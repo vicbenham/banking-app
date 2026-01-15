@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { User } from '../models/user';
-import { AuthService } from '../login.service/auth.service';
+import { AuthService } from '../service/auth.service';
 import { RouterLink } from '@angular/router';
 import { FirstLetterIcon } from '../first-letter-icon/first-letter-icon';
 import { NavbarComponent } from '../navbar/navbar';
@@ -21,7 +21,7 @@ export class ProfileComponent {
   }
 
   logout(): void {
-    console.log('Déconnexion', this.user()); 
+    console.log('Déconnexion', this.user());
     this.auth.logout();
   }
 }

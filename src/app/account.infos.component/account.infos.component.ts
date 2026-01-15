@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { switchMap } from 'rxjs';
 import { Account } from '../models/account';
-import { AccountInfosService } from './account.infos.service';
+import { AccountInfosService } from '../service/account.infos.service';
 
 @Component({
   selector: 'app-account-detail',

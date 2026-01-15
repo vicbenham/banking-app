@@ -27,9 +27,9 @@ export const routes: Routes = [{
   path: 'accounts/:id',
   component: AccountInfosComponent
 }, {
-    path: 'transaction',
+    path: 'transaction/:id',
     component: TransactionComponent
 }, {
-  path: 'transaction/transaction-id',
+  path: 'transaction-detail',
   component: TransactionDetail
 }];

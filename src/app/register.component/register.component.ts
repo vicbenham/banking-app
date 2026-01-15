@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {Router, RouterLink} from '@angular/router';
-import {AuthService} from '../login.service/auth.service';
-import {LoginResponse} from '../login.service/login.interface';
+import {AuthService} from '../service/auth.service';
+import {LoginResponse} from '../service/login.interface';
 
 @Component({
   selector: 'app-register.component',

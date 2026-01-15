@@ -1,9 +1,11 @@
 import {Component, Input} from '@angular/core';
 import {Router} from '@angular/router';
+import {NavbarComponent} from '../../navbar/navbar';
 
 @Component({
   selector: 'app-transaction-detail',
   imports: [
+    NavbarComponent
   ],
   templateUrl: './transaction.detail.html',
   styleUrl: './transaction.detail.css',

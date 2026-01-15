@@ -32,7 +32,7 @@ submitTransaction() {
     return;
   }
    this.lastTransaction= this.transactionForm.value;
-  this.router.navigate(['/transaction-details'], {
+  this.router.navigate(['transaction/transaction-id'], {
     state: { transaction: this.lastTransaction }
   });
 

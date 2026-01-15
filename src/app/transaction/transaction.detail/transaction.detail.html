@@ -1,0 +1,15 @@
+<div class="p-6 bg-white shadow-lg rounded-xl border border-gray-200">
+  @if (transaction) {
+    <h2 class="text-xl font-bold text-gray-800 mb-4">Transaction effectuée</h2>
+
+    <div class="space-y-2 text-gray-700">
+      <p><span class="font-semibold">ID bénéficiaire :</span> {{ transaction?.receiverAccountId }}</p>
+      <p><span class="font-semibold">Montant :</span> {{ transaction?.amount }} €</p>
+      <p><span class="font-semibold">Description :</span> {{ transaction?.description || 'Aucune' }}</p>
+    </div>
+
+    <div class="mt-4 text-sm text-gray-500">
+      Transaction envoyée avec succès.
+    </div>
+}
+</div>

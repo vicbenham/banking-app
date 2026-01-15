@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {Router, RouterLink} from '@angular/router';
+import {AuthService} from '../login.service/auth.service';
+import {LoginResponse} from '../login.service/login.interface';
 
 @Component({
   selector: 'app-register.component',
@@ -20,7 +22,8 @@ export class RegisterComponent {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {
     this.registerForm = this.fb.group({
       name: ['', Validators.required],
@@ -30,8 +33,9 @@ export class RegisterComponent {
 
   submit() {
     const formData = this.registerForm.value;
-    this.http.post(`${this.base}/auth/register`, formData).subscribe({
-      next: () => {
+    this.http.post<LoginResponse>(`${this.base}/auth/register`, formData).subscribe({
+      next: (response) => {
+        this.authService.storeSession(response)
         this.router.navigate([''])
       },
       error: () => {
@@ -39,7 +43,8 @@ export class RegisterComponent {
       }
     })
   }
-clearPassword() {
-  this.registerForm.get('password')?.setValue('');    
-}
+
+  clearPassword() {
+    this.registerForm.get('password')?.setValue('');
+  }
 }

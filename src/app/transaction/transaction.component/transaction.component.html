@@ -1,45 +1,32 @@
+<app-navbar></app-navbar>
 <div class="min-h-screen flex items-center justify-center bg-gray-100 px-4">
   <div class="bg-white p-10 rounded-2xl shadow-xl w-full max-w-3xl">
 
-    <form [formGroup]="transactionForm"
-          (ngSubmit)="submitTransaction()"
-          novalidate
-          class="flex flex-col space-y-4">
+    <form [formGroup]="transactionForm" (ngSubmit)="submitTransaction()" novalidate class="flex flex-col space-y-4">
 
       <div>
         <label for="receiverAccountId" class="block text-gray-700 font-semibold mb-1">
           ID du compte bénéficiaire
         </label>
-        <input
-          type="text"
-          id="receiverAccountId"
-          formControlName="receiverAccountId"
+        <input type="text" id="receiverAccountId" formControlName="receiverAccountId"
           placeholder="bd26eff0-e416-4154-8ddf-2a4c3e3fbabb"
           class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 outline-none">
       </div>
 
       <div>
         <label for="amount" class="block text-gray-700 font-semibold mb-1">Montant</label>
-        <input
-          id="amount"
-          placeholder="200"
-          type="number"
-          formControlName="amount"
+        <input id="amount" placeholder="200" type="number" formControlName="amount"
           class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 outline-none">
       </div>
 
       <div>
         <label for="description" class="block text-gray-700 font-semibold mb-1">Description</label>
-        <textarea
-          id="description"
-          placeholder="Remboursement..."
-          formControlName="description"
+        <textarea id="description" placeholder="Remboursement..." formControlName="description"
           class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 outline-none"></textarea>
       </div>
 
-      <button type="submit"
-              [disabled]="false"
-              class="w-full bg-yellow-600 text-white py-2 rounded-lg font-medium hover:bg-yellow-700 active:bg-yellow-800 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition">
+      <button type="submit" [disabled]="false"
+        class="w-full bg-yellow-600 text-white py-2 rounded-lg font-medium hover:bg-yellow-700 active:bg-yellow-800 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition">
         Envoyer
       </button>
 
@@ -47,5 +34,4 @@
   </div>
 </div>
 @if (lastTransaction){
-  <app-transaction-detail></app-transaction-detail>}
-
+<app-transaction-detail></app-transaction-detail>}

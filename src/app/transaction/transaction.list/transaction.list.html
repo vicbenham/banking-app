@@ -1,0 +1,34 @@
+<div class="rounded-2xl bg-white p-6 shadow-sm border border-gray-100">
+    <div>
+        <ul>
+            @for (transaction of displayedTransactions(); track transaction) {
+            <li>
+                <div class="flex flex-row justify-between hover:bg-yellow-200 cursor-pointer px-2 rounded-xl m-5">
+                    <div class="flex items-center gap-3">
+                        <div>
+                            <first-letter-icon></first-letter-icon>
+                        </div>
+                        <div>
+                            <p>{{ transaction.userName }}</p>
+                            <p>{{ transaction.date }}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p>{{ transaction.amount }} euros</p>
+                    </div>
+                </div>
+            </li>
+            }
+        </ul>
+    </div>
+
+    @if(!showAll()) {
+    <div class="text-center">
+        <p class="text-yellow-600">
+            <button (click)="showAllTransactions()" class="hover:underline">
+                Voir tout
+            </button>
+        </p>
+    </div>
+    }
+</div>

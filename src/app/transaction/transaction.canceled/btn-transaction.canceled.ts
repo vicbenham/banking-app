@@ -1,4 +1,4 @@
-//Code à copier, ne pas l'utiliser en tant que composant 
+//Code à copier, ne pas l'utiliser en tant que composant
 
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
@@ -6,7 +6,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   selector: 'app-btn-transaction.canceled',
   imports: [],
   templateUrl: './btn-transaction.canceled.html',
-  styleUrl: './btntransaction.canceled.css',
+  styleUrl: './btn-transaction.canceled.css',
 })
 export class BtnTransactionCanceled {
 

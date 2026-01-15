@@ -1,3 +1,5 @@
+<app-navbar></app-navbar>
+
 <div class="min-h-screen bg-gray-50 p-6">
   <div class="mx-auto w-full max-w-2xl space-y-6">
 
@@ -31,22 +33,16 @@
 
       <!-- Actions -->
       <div class="mt-6 flex items-center justify-between">
-        <button
-          routerLink="/"
-          class="inline-flex items-center justify-center gap-2 rounded-lg bg-yellow-600 px-4 py-2.5 text-sm font-semibold text-white
+        <button routerLink="/" class="inline-flex items-center justify-center gap-2 rounded-lg bg-yellow-600 px-4 py-2.5 text-sm font-semibold text-white
                  shadow-sm hover:bg-yellow-700 active:bg-yellow-800
                  focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2
-                 transition"
-        >
+                 transition cursor-pointer">
           Retour aux comptes
         </button>
-        <button
-          routerLink="/login"
-          class="inline-flex items-center justify-center gap-2 rounded-lg bg-red-100 px-4 py-2.5 text-sm font-semibold text-red-500
+        <button routerLink="/login" class="inline-flex items-center justify-center gap-2 rounded-lg bg-red-100 px-4 py-2.5 text-sm font-semibold text-red-500
                  shadow-sm hover:bg-red-200 active:bg-red-300
                  focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2
-                 transition"
-        >
+                 transition cursor-pointer" (click)="logout()">
           Déconnexion
         </button>
       </div>

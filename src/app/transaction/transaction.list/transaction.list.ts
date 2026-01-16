@@ -1,8 +1,8 @@
 import { Component, computed, signal, OnInit } from '@angular/core';
 import { FirstLetterIcon } from '../../first-letter-icon/first-letter-icon';
-import { AuthService } from '../../login.service/auth.service';
 import { User } from '../../models/user';
 import { TransactionInterface } from './transaction.interface';
+import {AuthService} from '../../service/auth.service';
 
 @Component({
   selector: 'app-transaction-list',

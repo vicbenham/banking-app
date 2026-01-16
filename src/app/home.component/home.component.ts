@@ -11,7 +11,7 @@ import { TransactionList } from '../transaction/transaction.list/transaction.lis
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NavbarComponent, RouterLink, TransactionList],
+  imports: [ RouterLink, TransactionList],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })

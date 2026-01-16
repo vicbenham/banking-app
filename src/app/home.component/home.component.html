@@ -78,6 +78,13 @@
         TEMP BTN
       </button>
     </div>
-
+  <div>
+    <p>hello</p>
+    @for (transaction of signalTransaction(); track $index){
+      {{transaction.receiverAccountId}}
+      {{transaction.date}}
+      {{transaction.amount}}
+    }
+  </div>
   </div>
 </div>

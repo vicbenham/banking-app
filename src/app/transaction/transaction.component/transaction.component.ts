@@ -55,15 +55,12 @@ export class TransactionComponent {
     this.transactionService.sendTransaction(this.transactionForm.value)
       .subscribe({
         next: (transaction) => {
-
-          console.log("Réponse backend :", transaction);
-
           this.router.navigate(['/transaction-detail'], {
             state: { transaction }
           });
         },
         error: (err) => {
-          console.error("Erreur backend :", err);
+          console.error("Error  :", err);
         }
       });
   }

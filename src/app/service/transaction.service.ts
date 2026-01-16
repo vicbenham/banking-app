@@ -19,7 +19,9 @@ export class TransactionService {
     return this.http.post<any>(`${this.base}/transactions/emit`, data, { headers });
   }
 
-  getTransactionId(){
-    return this.http.get<Transaction[]>(`${this.base}/transactions/{transactionId}`)
+  getTransaction(){
+    const user = this.auth.getUser()
+    const headers = new HttpHeaders({Authorization: `Bearer ${user?.token}`});
+    return this.http.get<Transaction[]>(`${this.base}/transactions/{transactionId}`, { headers })
   }
 }

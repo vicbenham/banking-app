@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter, ChangeDetectorRef} from '@angular/core';
+import {Component, ChangeDetectorRef} from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { NavbarComponent } from '../../navbar/navbar';
 import { FirstLetterIcon } from '../../first-letter-icon/first-letter-icon';
@@ -26,7 +26,6 @@ export class TransactionDetail {
 
   constructor(private router: Router, private cdr: ChangeDetectorRef) {
     this.transaction = history.state['transaction'];
-    console.log('transaction reçue = ', this.transaction);
     if (!this.transaction.date) {
       this.transaction.date = new Date();
     }
@@ -42,7 +41,6 @@ export class TransactionDetail {
     }
 
   }
-
 
   onCancel() {
     this.canceled = true;

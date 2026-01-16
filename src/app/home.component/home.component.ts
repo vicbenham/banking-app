@@ -6,6 +6,7 @@ import {AccountService} from '../service/account.service';
 import {toSignal} from '@angular/core/rxjs-interop';
 import { Account } from '../models/account';
 import { NavbarComponent } from '../navbar/navbar';
+import {TransactionService} from '../service/transaction.service';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,9 @@ import { NavbarComponent } from '../navbar/navbar';
 export class HomeComponent {
   user = signal<User | undefined>(undefined);
   private accountService = inject(AccountService)
+  private transactionService = inject(TransactionService)
   signalAccounts = toSignal(this.accountService.getAccounts())
+  signalTransaction = toSignal(this.transactionService.getTransaction())
 
   selectedAccountId = signal<string | null>(null);
   selectedAccount = computed(() => {
@@ -32,7 +35,7 @@ export class HomeComponent {
   }
 
   constructor(
-    private auth: AuthService,
+    private auth: AuthService
   ) {
     this.user.set(this.auth.getUser());
     console.log('USER FROM STORAGE', this.user());

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../login.service/auth.service';
+import { AuthService } from '../service/auth.service';
 import { FirstLetterIcon } from '../first-letter-icon/first-letter-icon';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterModule } from '@angular/router';
@@ -14,7 +14,7 @@ export class NavbarComponent {
   constructor(public auth: AuthService) {}
 
   logout(): void {
-    console.log('Déconnexion'); 
+    console.log('Déconnexion');
     this.auth.logout();
   }
 }

@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { User } from '../models/user';
-import { AuthService } from '../login.service/auth.service';
+import { AuthService } from '../service/auth.service';
 import { FirstLetterPipe } from '../pipe/first-letter-pipe';
 
 @Component({

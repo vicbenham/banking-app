@@ -6,11 +6,12 @@ import {AccountService} from '../account.component/account.service';
 import {toSignal} from '@angular/core/rxjs-interop';
 import { Account } from '../models/account';
 import { NavbarComponent } from '../navbar/navbar';
+import { TransactionList } from '../transaction/transaction.list/transaction.list';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NavbarComponent, RouterLink],
+  imports: [NavbarComponent, RouterLink, TransactionList],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })

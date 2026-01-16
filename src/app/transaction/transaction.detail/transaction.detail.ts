@@ -32,7 +32,6 @@ export class TransactionDetail {
     }
 
 
-    // Timer 10 secondes si statut = PENDING
     if (this.transaction.status.toLowerCase() === 'pending') {
       this.timer = setTimeout(() => {
         if (!this.canceled) {

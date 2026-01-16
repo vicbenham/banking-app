@@ -5,11 +5,12 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { switchMap } from 'rxjs';
 import { Account } from '../models/account';
 import { AccountInfosService } from '../service/account.infos.service';
+import {NavbarComponent} from '../navbar/navbar';
 
 @Component({
   selector: 'app-account-detail',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, NavbarComponent],
   templateUrl: './account.infos.component.html',
 })
 export class AccountInfosComponent {
